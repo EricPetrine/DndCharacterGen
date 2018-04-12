@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Select Level</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+	<center>
+    <body>
+        <div><form action="/save">
+		<p th:text="${name}"/><br>
+		Max HP: <p th:text="${HP}"/><br>
+		Current HP: <input type="number" name="level" value="${HP}"><br>
+		Alignment: <p th:text="${alignment}"/><br>
+		<table style="width:75%">
+		<tr>
+			<th>Stat</th>
+			<th>Raw Score</th>
+			<th>Modifier</th>
+		</tr>
+		<tr>
+			<td>STRENGTH</td>
+			<td><p th:text="${STR}"/></td>
+			<td><p th:text="'	' + ${STRMOD}"/></td>
+		</tr>
+		<tr>
+			<td>DEXTARITY</td>
+			<td><p th:text="'	' +${DEX}"/></td>
+			<td><p th:text="'	'+${DEXMOD}"/></td>
+		</tr><tr>
+			<td>CONSTITUTION</td>
+			<td><p th:text="'	' +${CON}"/></td>
+			<td><p th:text="'	' +${CONMOD}"/></td>
+		</tr><tr>
+			<td>INTELLIGENCE</td>
+			<td><p th:text="'	' +${INT}"/></td>
+			<td><p th:text="'	' + ${INTMOD}"/></td>
+		</tr><tr>
+			<td>WISDOM</td>
+			<td><p th:text="'	' +${WIS}"/></td>
+			<td><p th:text="'	' +${WISMOD}"/></td>
+		</tr><tr>
+			<td>CHARISMA</td>
+			<td><p th:text="'	' +${CHA}"/></td>
+			<td><p th:text="'	'	+${CHAMOD}"/></td>
+		</tr>
+		</table>
+                    
+    
+    
+        </div> <input type="submit" name="Save" value="Save">
+        </form>
+        <form action="/reroll">
+            <input type="submit" name="Reroll" value="Reroll">
+        </form>  
+    </body>
+</html>
