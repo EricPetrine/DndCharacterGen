@@ -15,7 +15,7 @@ and open the template in the editor.
         <div><form action="/save">
 		<p th:text="${name}"/><br>
 		Max HP: <p th:text="${HP}"/><br>
-		Current HP: <input type="number" name="level" value="${HP}"><br>
+		Current HP: <input type="number" name="curHP" th:value="${curHP}"><br>
 		Alignment: <p th:text="${alignment}"/><br>
 		<table style="width:75%">
 		<tr>
@@ -56,7 +56,28 @@ and open the template in the editor.
         </div> <input type="submit" name="Save" value="Save">
         </form>
         <form action="/reroll">
+            <input type="hidden" name="curHP" th:value="${curHP}">
             <input type="submit" name="Reroll" value="Reroll">
-        </form>  
+        </form> 
+        <form action="/1d4">
+            <input type="hidden" name="curHP" th:value="${curHP}">
+            <input type="submit" name="1d4" value="Take 1d4">
+        </form>
+        <form action="/1d6">
+            <input type="hidden" name="curHP" th:value="${curHP}">
+            <input type="submit" name="1d6" value="Take 1d6">
+        </form>
+        <form action="/1d8">
+            <input type="hidden" name="curHP" th:value="${curHP}">
+            <input type="submit" name="1d8" value="Take 1d8">
+        </form>
+        <form action="/1d10">
+            <input type="hidden" name="curHP" th:value="${curHP}">
+            <input type="submit" name="1d10" value="Take 1d10">
+        </form>
+        <form action="/1d12">
+            <input type="hidden" name="curHP" th:value="${curHP}">
+            <input type="submit" name="1d12" value="Take 1d12">
+        </form>
     </body>
 </html>
