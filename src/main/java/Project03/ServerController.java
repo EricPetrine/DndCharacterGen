@@ -6,6 +6,7 @@
 package Project03;
 
 import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,6 +38,7 @@ public class ServerController{
     String name;
     String alignment;
     Long groupID;
+    String[] charInGroup;
 
     
     @GetMapping("/home")
@@ -249,14 +251,28 @@ public class ServerController{
         return"homepage";
     }
     
-    @RequestMapping(value="characterview")
+    @RequestMapping(value="/characterview")
     public String savedChars(Model model){
-        charGroup = saveChar.groupID();
-        charInfo = saveChar.charName();
-        model.addAttribute("charInfo", charInfo);
-        model.addAttribute("charGroup", charGroup);
+//        charGroup = saveChar.groupID();
+//        charInfo = saveChar.charName();
+//        model.addAttribute("charInfo", charInfo);
+//        model.addAttribute("charGroup", charGroup);
         return"CharacterView";
-        
+    }
+    @RequestMapping(value="/GroupView")
+    public String selectGroup(@RequestParam("groupID") Long groupID, Model model){
+        List<Character> groupChar = repository.findAllByGroupID(groupID);
+        System.out.println(groupChar);
+        String characters = groupChar.toString();
+        System.out.println(characters);
+        charInGroup = characters.split("'");
+        for (String t : charInGroup){
+            System.out.println(t);
+        } 
+        name = charInGroup[1];
+        model.addAttribute("groupID", groupID);
+        model.addAttribute("name", name);
+        return "GroupView";
     }
     
     @RequestMapping(value="1d4")

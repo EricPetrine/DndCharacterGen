@@ -10,30 +10,16 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-
+    <center>
 
     <body>     
         <div>
-        <table style="width:100%">
-		<tr>
-			<td>Name</td>
-			<td>GroupID</td>
-			<td></td>
-		</tr>
-                <c: forEach items="${charInfo}" var="charInfo">
-                    <td>
-                        <p th:text="${charInfo}"/>
-                    </td>
-                    <td>
-                        <p th:text="${charGroup}"/>
-                    </td>
-                    <td>
-                        Play
-                    </td>
-                </c:>
+            <form action="/GroupView">            
+            GroupID: <input type="number" name="groupID"><br>
         </div>
     </body>
-            <form action="/homepage">
-            <input type="submit" name="Back" value="Back">
+
+            <input type="submit" name="SelectGroup" value="Select">
         </form>
+    </center>
 </html>
